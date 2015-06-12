@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="FistBump">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>FistBump Shoutouts</title>
+    <link rel="stylesheet" href="../styles/styles.css" type="text/css">
+    <link rel="stylesheet" href="../styles/angular-csp.css" type="screen" >
+    <script src="../js/angular.js"></script>
+    <script src="../js/angular-route.js"></script>
+    <script src="../js/angularfire.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Overlock+SC|Overlock:400,700,900,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <script src="../scripts/app.js"></script>
+    <script src="../scripts/controllers.js"></script>
+</head>
+<body>
+
+<div ng-controller="ShoutController">
+    <ul ng-repeat="shout in shoutouts">
+        {{shout.name}}
+        {{shout.shoutout}}
+    </ul>
+</div>
+
+
+</body>
+</html>

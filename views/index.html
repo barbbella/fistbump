@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="FistBump">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>FistBump</title>
+    <link rel="stylesheet" href="../styles/styles.css" type="text/css">
+    <link rel="stylesheet" href="../styles/angular-csp.css" type="screen" >
+    <script src="../js/angular.js"></script>
+    <script src="../js/angular-route.js"></script>
+    <script src="../js/angularfire.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Overlock+SC|Overlock:400,700,900,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <script src="../scripts/app.js"></script>
+    <script src="../scripts/controllers.js"></script>
+</head>
+<body>
+<!--<ng-view>-->
+
+<div class="container" ng-controller="GiveBumpController">
+
+    <div class="logo">
+        <p>Rock on, {{username}}!</p>
+        <img src="../images/fistbump-128.png">
+</div>
+
+    <div class="search">
+        <p class="directions">Give a Fist Bump!</p>
+        <p>Search for your teammate <br> & click their name to bump them.</p>
+        <input type="text" ng-model="bumpee">
+        <p>Give them a shoutout while you're at it!</p>
+        <input type="text" ng-model="shoutout">
+        <br>
+        <br>
+    </div>
+
+    <div class="roster">
+        <table>
+            <th>Name</th><th>Count</th><th>Bump</th>
+            <tr ng-repeat="player in teammates | filter: bumpee" ng-click="GiveBump(player.$id, shoutout)">
+                <td>{{player.name}}</td>
+                <td>{{player.score}}</td>
+                <td><img class="mini-icon" src="../images/fistbump-128.png"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!--</ng-view>-->
+</body>
+</html>
