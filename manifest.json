@@ -1,28 +1,24 @@
 {
-  "name": "Fist Bump!",
-  "version": "0.0.0",
+  "name": "Fist Bump",
+  "version": "0.0.1",
   "manifest_version": 2,
-  "description": "This extension lets you send fist bumps over Google Chrome.",
+  "description": "The Chrome Extension that let's you fist bump your teammates!",
   "icons": {
+    "128": "fistbump-128.png"
   },
-
-    "browser_action": {
-      "default_icon": "fistbump.png",
-      "default_popup": "popup.html"
+  "default_locale": "en",
+  "browser_action": {
+    "default_icon": {
+      "128": "fistbump-128.png"
     },
-    "permissions": [
-    "http://*/*",
-    "https://*/*",
-    "contextMenus",
-    "storage",
-    "notifications",
-    "clipboardRead",
-    "clipboardWrite",
-    "tabs",
-    "<all_urls>"
+    "default_title": "Fist Bump",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "notifications"
   ],
-    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
-    "web_accessible_resources": [
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+  "web_accessible_resources": [
     "http://fonts.googleapis.com/",
     "https://*.google-analytics.com/**/*"
   ]

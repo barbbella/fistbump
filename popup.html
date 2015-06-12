@@ -1,57 +1,33 @@
-<!--<!doctype html>-->
-<!--&lt;!&ndash;-->
- <!--This page is shown when the extension button is clicked, because the-->
- <!--"browser_action" field in manifest.json contains the "default_popup" key with-->
- <!--value "popup.html".-->
- <!--&ndash;&gt;-->
-<!--<html>-->
-  <!--<head>-->
-    <!--<title>FistBump</title>-->
-
-    <!--&lt;!&ndash;-->
-      <!-&#45;&#45; JavaScript and HTML must be in separate files: see our Content Security-->
-      <!-&#45;&#45; Policy documentation[1] for details and explanation.-->
-      <!-&#45;&#45;-->
-      <!-&#45;&#45; [1]: https://developer.chrome.com/extensions/contentSecurityPolicy-->
-     <!--&ndash;&gt;-->
-      <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>-->
-      <!--<link rel="stylesheet" type="text/css" href="styles.css" >-->
-      <!--<link href='http://fonts.googleapis.com/css?family=Overlock+SC|Overlock:400,700,900,400italic,700italic,900italic' rel='stylesheet' type='text/css'>-->
-  <!--</head>-->
-  <!--<body>-->
-    <!--<a href="index.html">Send a FistBump.</a>-->
-  <!--</body>-->
-<!--</html>-->
-
 <!DOCTYPE html>
-<html ng-app="FistBump">
+<html ng-app="FistBump" ng-csp="">
 <head lang="en">
     <meta charset="UTF-8">
     <title>FistBump</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" >
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="angular-csp.css" type="screen" >
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="node_modules/angularfire/dist/angularfire.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Overlock+SC|Overlock:400,700,900,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <script src="app.js"></script>
-    <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
+
 </head>
 <body>
-<!--<div ng-controller="AuthController">-->
-<!--<button ng-click="login()">Login</button>-->
-<!--</div>-->
+<!--<ng-view>-->
 
 <div class="container" ng-controller="GiveBumpController">
 
     <div class="logo">
         <p>Rock on, {{username}}!</p>
-        <img src="fistbump.png">
+        <img src="fistbump-128.png">
     </div>
 
     <div class="search">
         <p class="directions">Give a Fist Bump!</p>
         <p>Search for your teammate <br> & click their name to bump them.</p>
         <input type="text" ng-model="bumpee">
-        <p>You can give them a shoutout while you're at it!</p>
+        <p>Give them a shoutout while you're at it!</p>
         <input type="text" ng-model="shoutout">
         <br>
         <br>
@@ -63,12 +39,11 @@
             <tr ng-repeat="player in teammates | filter: bumpee" ng-click="GiveBump(player.$id, shoutout)">
                 <td>{{player.name}}</td>
                 <td>{{player.score}}</td>
-                <td><img class="mini-icon" src="fistbump.png"></td>
+                <td><img class="mini-icon" src="fistbump-128.png"></td>
             </tr>
         </table>
     </div>
 </div>
-
+<!--</ng-view>-->
 </body>
 </html>
-
